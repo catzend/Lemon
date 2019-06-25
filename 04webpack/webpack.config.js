@@ -10,23 +10,23 @@ module.exports = {
     module: {
         rules: [{
             test: /\.(jpg|png|gif)$/,
-            // use: {
-            //     loader: 'file-loader',
-            //     options: {
-            //         name: '[name]_[hash:5].[ext]',
-            //         outputPath: 'images/'
-            //     }
-            // }
             use: {
-                loader: 'url-loader',
+                loader: 'file-loader',
                 options: {
                     name: '[name]_[hash:5].[ext]',
-                    outputPath: 'images/',
-                    limit: '2048',
-                    // 当大于2048(2kb)的时候执行下面的loader
-                    //  fallback: 'responsive-loader'
+                    outputPath: 'images/'
                 }
             }
+            // use: {
+            //     loader: 'url-loader',
+            //     options: {
+            //         name: '[name]_[hash:5].[ext]',
+            //         outputPath: 'images/',
+            //         limit: '2048',
+            //         // 当大于2048(2kb)的时候执行下面的loader
+            //         //  fallback: 'responsive-loader'
+            //     }
+            // }
         }, ]
     }
 }
