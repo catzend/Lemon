@@ -11,7 +11,7 @@ module.exports = {
     entry: {
         main: './src/index.js'
     },
-    devtool: 'cheap-module-eval-source-map',
+    devTool: 'cheap-module-eval-source-map',
     devServer: {
         contentBase: "./dist",
         open: "true",
