@@ -78,5 +78,10 @@ module.exports = {
         //         collapseWhitespace: true,
         //     }
         // })
-    ]
+    ],
+
+    output: {
+        filename: "[name]_[hash:5].js",
+        path: path.resolve(__dirname, "dist/")
+    }
 }
