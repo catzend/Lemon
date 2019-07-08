@@ -14,16 +14,16 @@ module.exports = {
         filename: "[name_[hash:5].js",
         path: path.resolve(__dirname, "/dist")
     },
-    //映射 
+    //映射
     devtool: "cheap-module-eval-source-map",
     //服务开启
-    devServer: {
-        contentBase: "./dist",
-        open: true,
-        port: 3000,
-        // hot: true,
-        // onlyHot: true
-    },
+    // devServer: {
+    //     contentBase: "./dist",
+    //     open: true,
+    //     port: 3000,
+    //     // hot: true,
+    //     // onlyHot: true
+    // },
     module: {
         rules: [{
             test: /\.(jpg|png|gif)$/,

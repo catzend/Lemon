@@ -1,5 +1,5 @@
 {
-    "name": "abf",
+    "name": "08babel",
     "version": "1.0.0",
     "description": "",
     "scripts": {
@@ -11,7 +11,11 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@babel/core": "^7.5.0",
+        "@babel/plugin-transform-runtime": "^7.5.0",
+        "@babel/preset-env": "^7.5.0",
         "autoprefixer": "^9.6.1",
+        "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.0.0",
         "express": "^4.17.1",
@@ -24,5 +28,9 @@
         "webpack-cli": "^3.3.5",
         "webpack-dev-middleware": "^3.7.0",
         "webpack-dev-server": "^3.7.2"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "@babel/runtime": "^7.5.1"
     }
 }

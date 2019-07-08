@@ -13,13 +13,26 @@ module.exports = {
     },
     devtool: "cheap-module-eval-source-map",
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9000,
+        contentBase: './dist',
         open: true,
+        // 发送ajax请求
+        //解决跨域的模拟的接口代理(vue和react)
+        // proxy:{
+        //     '/api':"http:localhost:3000"
+        // }
+        // 端口号
+        port: 3000,
         hot: true,
-        hotOnly: true
+        // hotOnly: true
     },
+    // devServer: {
+    //     contentBase: path.join(__dirname, "dist"),
+    //     compress: true,
+    //     port: 9000,
+    //     open: true,
+    //     hot: true,
+    //     hotOnly: true
+    // },
     module: {
         rules: [{
             test: /\.(jpg|png|gif)$/,
@@ -37,7 +50,7 @@ module.exports = {
                 loader: "file-loader"
             }
         }, {
-            test: "/\.css$/",
+            test: /\.css$/,
             use: [
                 "style-loader",
                 {
@@ -63,7 +76,8 @@ module.exports = {
                 removeComments: true,
                 collapseWhitespace: false
             }
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
         // new webpack.HotModuleReplacementPlugin()
     ]
 }

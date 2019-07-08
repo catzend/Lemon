@@ -7,4 +7,4 @@
 //     div.innerHTML = "item one";
 //     document.body.appendChild(div);
 // }
-window.onloade
+conle.log(1111);
