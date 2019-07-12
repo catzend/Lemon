@@ -1,48 +1,46 @@
 const path = require("path");
+const webpack = require("webpack");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const {
   CleanWebpackPlugin
 } = require("clean-webpack-plugin");
-const webpack = require("webpack");
 module.exports = {
   mode: "development",
   entry: {
-    "main": "./src/index.js",
-    "header": "./src/header.js"
+    main: "./src/index.js",
+    header: "./src/header.js"
   },
   devtool: "cheap-module-eval-source-map",
   devServer: {
     contentBase: "dist",
-    open: true,
     port: 3000,
+    open: true,
     hot: true
   },
   output: {
     publicPath: "/",
-    filename: "[name]_[hash:5].js",
+    filename: "[name]_[hash:3].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
-    rules: [
-      {
-        test:/\.js$/,
-        exclude:"/node_momdule",
-        loader:"babel-loader",
-      },
-      {
-      test: /\.(png|jpg|gif)$/,
+    rules: [{
+      test: /\.js$/,
+      loader: "babel-loader",
+      exclude: /node_module/
+    }, {
+      test: /\.(jpg|png|gif)$/,
       use: {
         loader: "url-loader",
         options: {
-          name: "[name].[ext]",
-          outputPath: "images",
+          name: "[name]_[hash].[ext]",
           limit: 10240
         }
+
       }
     }, {
-      test: /\.(eot|ttf|svg)$/,
+      test: /\.(eot|tff|svg)$/,
       use: {
-        loader: "file-loader"
+        loader: "file-loader",
       }
     }, {
       test: /\.css$/,
@@ -60,25 +58,24 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-
     new htmlWebpackPlugin({
-      "title": "这是哪一次整合",
-      "filename": "index.html",
-      "template": "./src/index.html",
-      "inject": "body",
-      "chunks": ["main", "header"],
-      "minify": {
+      title: "new",
+      filename: "index.html",
+      template: "./src/index.html",
+      inject: 'body',
+      chunks: ["main", "header"],
+      minify: {
         removeComments: true,
         collapseWhitespace: true
       }
     }),
     new htmlWebpackPlugin({
-      "title": "这是哪一次整合",
-      "filename": "header.html",
-      "template": "./src/header.html",
-      "inject": "body",
-      "chunks": ["header"],
-      "minify": {
+      title: "header",
+      filename: "header.html",
+      template: "./src/header.html",
+      inject: 'body',
+      chunks: ["header"],
+      minify: {
         removeComments: false,
         collapseWhitespace: false
       }
